@@ -5,12 +5,19 @@
     "description": "Second Project",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse-341-project2-6yri.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/musics/": {
       "get": {
         "description": "",
@@ -184,13 +191,6 @@
         }
       }
     },
-    "/musics/api-docs": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
     "/users/": {
       "get": {
         "description": "",
@@ -344,13 +344,6 @@
             "description": "Internal Server Error"
           }
         }
-      }
-    },
-    "/users/api-docs": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
       }
     }
   }
