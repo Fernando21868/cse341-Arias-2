@@ -8,8 +8,6 @@ const {
   deleteUserRoute
 } = require("../controllers/users");
 
-router.use("/", require("./swagger"));
-
 router.get("/", getUsersRoute);
 router.get("/:userId", getUserByIdRoute);
 router.post("/", createUserRoute);

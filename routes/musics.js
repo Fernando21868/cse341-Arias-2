@@ -8,8 +8,6 @@ const {
   deleteMusicRoute
 } = require("../controllers/musics");
 
-router.use("/", require("./swagger"));
-
 router.get("/", getMusicRoute);
 router.get("/:musicId", getMusicByNameRoute);
 router.post("/", createMusicRoute);
