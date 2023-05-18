@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Song 1",
+    "artist": ["Artist 1"],
+    "album": "Album 1",
+    "genre": ["Genre 1"],
+    "duration": 240,
+    "releaseDate": "2022-01-01",
+    "lyrics": "Lyrics for Song 1",
+    "rating": 4,
+    "plays": 1000
+  },
+  {
+    "title": "Song 2",
+    "artist": ["Artist 2", "Artist 3"],
+    "album": "Album 2",
+    "genre": ["Genre 2", "Genre 3"],
+    "duration": 180,
+    "releaseDate": "2021-07-15",
+    "lyrics": "Lyrics for Song 2",
+    "rating": 3.5,
+    "plays": 50
+  }
+]

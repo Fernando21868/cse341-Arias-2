@@ -1,0 +1,43 @@
+[
+  {
+    "username": "john_doe",
+    "password": "secretpassword",
+    "displayName": "John Doe",
+    "email": "johndoe@example.com",
+    "phoneNumber": "1234567890",
+    "profile": {
+      "experience": [
+        "Software Engineer at ABC Company",
+        "Web Developer at XYZ Agency"
+      ],
+      "education": [
+        "Bachelor's Degree in Computer Science",
+        "Master's Degree in Information Technology"
+      ],
+      "projects": ["E-commerce Website", "Mobile Application"],
+      "skills": ["JavaScript", "Node.js", "React", "MongoDB"]
+    }
+  },
+  {
+    "username": "jane_smith",
+    "password": "securepassword123",
+    "displayName": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "phoneNumber": "9876543210",
+    "profile": {
+      "experience": [
+        "Frontend Developer at XYZ Company",
+        "UI/UX Designer at ABC Agency"
+      ],
+      "education": [
+        "Bachelor's Degree in Graphic Design",
+        "Certification in Web Development"
+      ],
+      "projects": [
+        "Responsive Website Redesign",
+        "Mobile App Interface Design"
+      ],
+      "skills": ["HTML", "CSS", "JavaScript", "Photoshop", "Illustrator"]
+    }
+  }
+]

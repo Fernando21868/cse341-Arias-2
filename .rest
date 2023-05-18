@@ -1,0 +1,115 @@
+### 
+GET http://localhost:8080/musics/6464fd588af74afa490fe605 HTTP/1.1
+
+### 
+GET http://localhost:8080/musics HTTP/1.1
+
+### 
+POST http://localhost:8080/musics HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Song Title 1",
+  "artist": ["Artist 1", "Artist 2"],
+  "album": "Album 1",
+  "genre": ["Genre 1", "Genre 2"],
+  "duration": 240,
+  "releaseDate": "2022-01-01",
+  "lyrics": "Lyrics for Song 1",
+  "rating": 4.5,
+  "plays": 1000
+}
+
+### 
+PUT http://localhost:8080/musics/646655e138298ffa9af9fbf5 HTTP/1.1
+content-type: application/json
+
+{
+  "title": "m Song Title 1",
+  "artist": ["m Artist 1", "Artist 2"],
+  "album": "m Album 1",
+  "genre": ["m Genre 1", "Genre 2"],
+  "duration": 240,
+  "releaseDate": "m 2022-01-01",
+  "lyrics": "m Lyrics for Song 1",
+  "rating": 4.5,
+  "plays": 1000
+}
+
+### 
+DELETE http://localhost:8080/musics/646655e138298ffa9af9fbf5 HTTP/1.1
+
+### 
+GET http://localhost:8080/users/646695997afd18bca2df5ac1 HTTP/1.1
+
+### 
+GET http://localhost:8080/users HTTP/1.1
+
+### 
+POST http://localhost:8080/users HTTP/1.1
+content-type: application/json
+
+{
+  "username": "alex_jones",
+  "password": "strongpassword456",
+  "displayName": "Alex Jones",
+  "email": "alex.jones@example.com",
+  "phoneNumber": "555-1234",
+  "profile": {
+    "experience": [
+      "Backend Developer at XYZ Corporation",
+      "Database Administrator at ABC Company"
+    ],
+    "education": [
+      "Bachelor's Degree in Computer Engineering",
+      "Certification in Database Management"
+    ],
+    "projects": [
+      "API Development for E-commerce Platform",
+      "Database Optimization Project"
+    ],
+    "skills": [
+      "Java",
+      "Python",
+      "SQL",
+      "MongoDB",
+      "AWS"
+    ]
+  }
+}
+
+### 
+PUT http://localhost:8080/users/646697b6d562a3ce33c0469e HTTP/1.1
+content-type: application/json
+
+{
+  "username": "M alex_jones",
+  "password": "M strongpassword456",
+  "displayName": "M Alex Jones",
+  "email": "M alex.jones@example.com",
+  "phoneNumber": "M 555-1234",
+  "profile": {
+    "experience": [
+      "Backend Developer at XYZ Corporation",
+      "Database Administrator at ABC Company"
+    ],
+    "education": [
+      "Bachelor's Degree in Computer Engineering",
+      "Certification in Database Management"
+    ],
+    "projects": [
+      "API Development for E-commerce Platform",
+      "Database Optimization Project"
+    ],
+    "skills": [
+      "Java",
+      "Python",
+      "SQL",
+      "MongoDB",
+      "AWS"
+    ]
+  }
+}
+
+### 
+DELETE  http://localhost:8080/users/646697b6d562a3ce33c0469e HTTP/1.1
