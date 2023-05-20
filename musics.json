@@ -1,24 +1,24 @@
 [
   {
-    "title": "Song 1",
-    "artist": ["Artist 1"],
-    "album": "Album 1",
-    "genre": ["Genre 1"],
-    "duration": 240,
-    "releaseDate": "2022-01-01",
-    "lyrics": "Lyrics for Song 1",
-    "rating": 4,
-    "plays": 1000
+    "title": "Dance Monkey",
+    "artist": ["Tones and I"],
+    "album": "The Kids Are Coming",
+    "genre": ["Pop"],
+    "duration": 209,
+    "releaseDate": "2019-11-10",
+    "lyrics": "They say, oh my God, I see the way you shine\nTake your hand, my dear, and place them both in mine\nYou know you stopped me dead while I was passing by\nAnd now I beg to see you dance just one more time",
+    "rating": 4.8,
+    "plays": 2500
   },
   {
-    "title": "Song 2",
-    "artist": ["Artist 2", "Artist 3"],
-    "album": "Album 2",
-    "genre": ["Genre 2", "Genre 3"],
-    "duration": 180,
-    "releaseDate": "2021-07-15",
-    "lyrics": "Lyrics for Song 2",
-    "rating": 3.5,
-    "plays": 50
+    "title": "Happier",
+    "artist": ["Marshmello", "Bastille"],
+    "album": "Happier",
+    "genre": ["Pop", "Electropop"],
+    "duration": 214,
+    "releaseDate": "2018-08-17",
+    "lyrics": "Lately, I've been, I've been thinking\nI want you to be happier, I want you to be happier\nWhen the morning comes\nWhen we see what we've become\nIn the cold light of day, we're a flame in the wind\nNot the fire that we've begun",
+    "rating": 4.7,
+    "plays": 1800
   }
 ]
