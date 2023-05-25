@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const validation = require("../middleware/validate");
 
 const {
   getUsersRoute,
@@ -10,8 +11,8 @@ const {
 
 router.get("/", getUsersRoute);
 router.get("/:userId", getUserByIdRoute);
-router.post("/", createUserRoute);
-router.put("/:userId", updateUserRoute);
+router.post("/", validation.saveUser, createUserRoute);
+router.put("/:userId", validation.saveUser, updateUserRoute);
 router.delete("/:userId", deleteUserRoute);
 
 module.exports = router;

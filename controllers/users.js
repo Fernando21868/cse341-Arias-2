@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const db = require("../models");
 const Users = db.users;
 
@@ -19,7 +20,10 @@ exports.getUsersRoute = async (req, res) => {
 
 exports.getUserByIdRoute = async (req, res) => {
   try {
-    const { userId } = req.params;
+    if (!ObjectId.isValid(req.params.userId)) {
+      res.status(400).json("Must use a valid user id to get a contact.");
+    }
+    const { userId } = new ObjectId(req.params.userId);
     const data = await Users.find({ _id: userId });
     if (!data) {
       res
@@ -66,7 +70,10 @@ exports.createUserRoute = async (req, res) => {
 
 exports.updateUserRoute = async (req, res) => {
   try {
-    const { userId } = req.params;
+    if (!ObjectId.isValid(req.params.userId)) {
+      res.status(400).json("Must use a valid user id to update a contact.");
+    }
+    const { userId } = new ObjectId(req.params.userId);
     const newUser = {
       username: req.body.username,
       password: req.body.password,
@@ -98,7 +105,10 @@ exports.updateUserRoute = async (req, res) => {
 
 exports.deleteUserRoute = async (req, res) => {
   try {
-    const { userId } = req.params;
+    if (!ObjectId.isValid(req.params.userId)) {
+      res.status(400).json("Must use a valid user id to delete a contact.");
+    }
+    const { userId } = new ObjectId(req.params.userId);
     const data = await Users.deleteOne({ _id: userId });
     if (!data) {
       res.status(404).send({ message: "Not found theme with id to delete." });

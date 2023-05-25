@@ -1,9 +1,13 @@
+const { ObjectId } = require("mongodb");
 const db = require("../models");
 const Musics = db.musics;
 
 exports.getMusicByNameRoute = async (req, res) => {
   try {
-    const { musicId } = req.params;
+    if (!ObjectId.isValid(req.params.musicId)) {
+      res.status(400).json("Must use a valid user id to update a contact.");
+    }
+    const musicId = new ObjectId(req.params.musicId);
     const data = await Musics.find({ _id: musicId });
     if (!data) {
       res
@@ -69,7 +73,10 @@ exports.createMusicRoute = async (req, res) => {
 
 exports.updateMusicRoute = async (req, res) => {
   try {
-    const { musicId } = req.params;
+    if (!ObjectId.isValid(req.params.musicId)) {
+      res.status(400).json("Must use a valid user id to update a contact.");
+    }
+    const musicId = new ObjectId(req.params.musicId);
     const newMusic = {
       title: req.body.title,
       artist: req.body.artist,
@@ -104,7 +111,10 @@ exports.updateMusicRoute = async (req, res) => {
 
 exports.deleteMusicRoute = async (req, res) => {
   try {
-    const { musicId } = req.params;
+    if (!ObjectId.isValid(req.params.musicId)) {
+      res.status(400).json("Must use a valid user id to update a contact.");
+    }
+    const musicId = new ObjectId(req.params.musicId);
     const data = await Musics.deleteOne({ _id: musicId });
     if (!data) {
       res.status(404).send({ message: "Not found theme with id to delete." });
