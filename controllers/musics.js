@@ -96,7 +96,7 @@ exports.updateMusicRoute = async (req, res, next) => {
       throw createError(400, "Music does not exist.");
     }
     console.log(data);
-    res.status(200).json(data);
+    res.status(204).json(data);
   } catch (err) {
     console.log(err.message);
     if (err instanceof mongoose.CastError) {

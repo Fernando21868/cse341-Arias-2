@@ -7,6 +7,16 @@
   },
   "host": "cse-341-project2-6yri.onrender.com",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "musics",
+      "description": "Operations about musics"
+    },
+    {
+      "name": "users",
+      "description": "Operations about users"
+    }
+  ],
   "schemes": ["https"],
   "paths": {
     "/api-docs": {
