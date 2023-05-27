@@ -1,46 +1,45 @@
-const { ObjectId } = require("mongodb");
+const createError = require("http-errors");
+const mongoose = require("mongoose");
+
 const db = require("../models");
 const Users = db.users;
 
-exports.getUsersRoute = async (req, res) => {
+exports.getUsersRoute = async (req, res, next) => {
   try {
     const data = await Users.find({});
     if (!data) {
-      res.status(404).send({ message: "Not found any user." });
-    } else {
-      res.status(200).send(data);
+      throw createError(404, "Music does not exist.");
     }
+    res.status(200).send(data);
   } catch (err) {
-    res.status(500).send({
-      message: "Error retrieving users.",
-      error: err
-    });
+    console.log(err.message);
+    next(createError(500, "Error retrieving users."));
   }
 };
 
-exports.getUserByIdRoute = async (req, res) => {
+exports.getUserByIdRoute = async (req, res, next) => {
   try {
-    if (!ObjectId.isValid(req.params.userId)) {
-      res.status(400).json("Must use a valid user id to get a contact.");
-    }
-    const { userId } = new ObjectId(req.params.userId);
-    const data = await Users.find({ _id: userId });
+    // if (!ObjectId.isValid(req.params.userId)) {
+    //   res.status(400).json("Must use a valid user id to get a contact.");
+    // }
+    // const { userId } = new ObjectId(req.params.userId);
+    const userId = req.params.userId;
+    const data = await Users.findById({ _id: userId });
     if (!data) {
-      res
-        .status(404)
-        .send({ message: "Not found user with the id specified." });
-    } else {
-      res.status(200).send(data);
+      throw createError(404, "User does not exist.");
     }
+    res.status(200).send(data);
   } catch (err) {
-    res.status(500).send({
-      message: "Error retrieving user with the title specified.",
-      error: err
-    });
+    console.log(err.message);
+    if (err instanceof mongoose.CastError) {
+      next(createError(400, "Invalid User id."));
+      return;
+    }
+    next(err);
   }
 };
 
-exports.createUserRoute = async (req, res) => {
+exports.createUserRoute = async (req, res, next) => {
   try {
     const newUser = {
       username: req.body.username,
@@ -53,27 +52,27 @@ exports.createUserRoute = async (req, res) => {
     const user = new Users(newUser);
     const data = await user.save();
     if (!data) {
-      res
-        .status(404)
-        .send({ message: "It was not possible to create the user." });
-    } else {
-      console.log(data);
-      res.status(201).json(data);
+      throw createError(400, "User was not created.");
     }
+    console.log(data);
+    res.status(201).json(data);
   } catch (err) {
-    res.status(500).send({
-      message: "Some error occurred while creating the user.",
-      error: err
-    });
+    console.log(err.message);
+    if (err.name === "ValidationError") {
+      next(createError(422, err.message));
+      return;
+    }
+    next(err);
   }
 };
 
-exports.updateUserRoute = async (req, res) => {
+exports.updateUserRoute = async (req, res, next) => {
   try {
-    if (!ObjectId.isValid(req.params.userId)) {
-      res.status(400).json("Must use a valid user id to update a contact.");
-    }
-    const { userId } = new ObjectId(req.params.userId);
+    // if (!ObjectId.isValid(req.params.userId)) {
+    //   res.status(400).json("Must use a valid user id to update a contact.");
+    // }
+    // const { userId } = new ObjectId(req.params.userId);
+    const userId = req.params.userId;
     const newUser = {
       username: req.body.username,
       password: req.body.password,
@@ -82,43 +81,44 @@ exports.updateUserRoute = async (req, res) => {
       phoneNumber: req.body.phoneNumber,
       profile: req.body.profile
     };
-    const data = await Users.findOneAndUpdate(
+    const data = await Users.findByIdAndUpdate(
       { _id: userId },
       { $set: newUser },
       { new: true }
     );
     if (!data) {
-      res
-        .status(404)
-        .send({ message: "It was not possible to update the user" });
-    } else {
-      console.log(data);
-      res.status(200).json(data);
+      throw createError(400, "User does not exist.");
     }
+    console.log(data);
+    res.status(200).json(data);
   } catch (err) {
-    res.status(500).send({
-      message: "Some error occurred while updating the user.",
-      error: err
-    });
+    console.log(err.message);
+    if (err instanceof mongoose.CastError) {
+      next(createError(400, "Invalid User id."));
+      return;
+    }
+    next(err);
   }
 };
 
-exports.deleteUserRoute = async (req, res) => {
+exports.deleteUserRoute = async (req, res, next) => {
   try {
-    if (!ObjectId.isValid(req.params.userId)) {
-      res.status(400).json("Must use a valid user id to delete a contact.");
-    }
-    const { userId } = new ObjectId(req.params.userId);
-    const data = await Users.deleteOne({ _id: userId });
+    // if (!ObjectId.isValid(req.params.userId)) {
+    //   res.status(400).json("Must use a valid user id to delete a contact.");
+    // }
+    // const { userId } = new ObjectId(req.params.userId);
+    const userId = req.params.userId;
+    const data = await Users.findByIdAndDelete({ _id: userId });
     if (!data) {
-      res.status(404).send({ message: "Not found theme with id to delete." });
-    } else {
-      res.status(200).send(data);
+      throw createError(400, "User does not exist.");
     }
+    res.status(200).send(data);
   } catch (err) {
-    res.status(500).send({
-      message: "Error deleting user with the id specified.",
-      error: err
-    });
+    console.log(err.message);
+    if (err instanceof mongoose.CastError) {
+      next(createError(400, "Invalid User id."));
+      return;
+    }
+    next(err);
   }
 };

@@ -1,46 +1,45 @@
-const { ObjectId } = require("mongodb");
+const createError = require("http-errors");
+const mongoose = require("mongoose");
+
 const db = require("../models");
 const Musics = db.musics;
 
-exports.getMusicByNameRoute = async (req, res) => {
-  try {
-    if (!ObjectId.isValid(req.params.musicId)) {
-      res.status(400).json("Must use a valid user id to update a contact.");
-    }
-    const musicId = new ObjectId(req.params.musicId);
-    const data = await Musics.find({ _id: musicId });
-    if (!data) {
-      res
-        .status(404)
-        .send({ message: "Not found theme with the Id specified." });
-    } else {
-      res.status(200).send(data);
-    }
-  } catch (err) {
-    res.status(500).send({
-      message: "Error retrieving music with the title specified.",
-      error: err
-    });
-  }
-};
-
-exports.getMusicRoute = async (req, res) => {
+exports.getMusicRoute = async (req, res, next) => {
   try {
     const data = await Musics.find({});
     if (!data) {
-      res.status(404).send({ message: "Not found any music" });
-    } else {
-      res.status(200).send(data);
+      throw createError(404, "Music does not exist.");
     }
+    res.status(200).send(data);
   } catch (err) {
-    res.status(500).send({
-      message: "Error retrieving music.",
-      error: err
-    });
+    console.log(err.message);
+    next(createError(500, "Error retrieving musics."));
   }
 };
 
-exports.createMusicRoute = async (req, res) => {
+exports.getMusicByNameRoute = async (req, res, next) => {
+  try {
+    // if (!ObjectId.isValid(req.params.musicId)) {
+    //   res.status(400).json("Must use a valid user id to update a contact.");
+    // }
+    // const musicId = new ObjectId(req.params.musicId);
+    const musicId = req.params.musicId;
+    const data = await Musics.findById({ _id: musicId });
+    if (!data) {
+      throw createError(404, "Music does not exist.");
+    }
+    res.status(200).send(data);
+  } catch (err) {
+    console.log(err.message);
+    if (err instanceof mongoose.CastError) {
+      next(createError(400, "Invalid Music id."));
+      return;
+    }
+    next(err);
+  }
+};
+
+exports.createMusicRoute = async (req, res, next) => {
   try {
     const newMusic = {
       title: req.body.title,
@@ -56,27 +55,27 @@ exports.createMusicRoute = async (req, res) => {
     const music = new Musics(newMusic);
     const data = await music.save();
     if (!data) {
-      res
-        .status(404)
-        .send({ message: "It was not possible to create the music" });
-    } else {
-      console.log(data);
-      res.status(201).json(data);
+      throw createError(400, "Music was not created.");
     }
+    console.log(data);
+    res.status(201).json(data);
   } catch (err) {
-    res.status(500).send({
-      message: "Some error occurred while creating the music.",
-      error: err
-    });
+    console.log(err.message);
+    if (err.name === "ValidationError") {
+      next(createError(422, err.message));
+      return;
+    }
+    next(err);
   }
 };
 
-exports.updateMusicRoute = async (req, res) => {
+exports.updateMusicRoute = async (req, res, next) => {
   try {
-    if (!ObjectId.isValid(req.params.musicId)) {
-      res.status(400).json("Must use a valid user id to update a contact.");
-    }
-    const musicId = new ObjectId(req.params.musicId);
+    // if (!ObjectId.isValid(req.params.musicId)) {
+    //   res.status(400).json("Must use a valid user id to update a contact.");
+    // }
+    // const musicId = new ObjectId(req.params.musicId);
+    const musicId = req.params.musicId;
     const newMusic = {
       title: req.body.title,
       artist: req.body.artist,
@@ -88,43 +87,44 @@ exports.updateMusicRoute = async (req, res) => {
       rating: req.body.rating,
       plays: req.body.plays
     };
-    const data = await Musics.findOneAndUpdate(
+    const data = await Musics.findByIdAndUpdate(
       { _id: musicId },
       { $set: newMusic },
       { new: true }
     );
     if (!data) {
-      res
-        .status(404)
-        .send({ message: "It was not possible to create the music" });
-    } else {
-      console.log(data);
-      res.status(200).json(data);
+      throw createError(400, "Music does not exist.");
     }
+    console.log(data);
+    res.status(200).json(data);
   } catch (err) {
-    res.status(500).send({
-      message: "Some error occurred while updating the music.",
-      error: err
-    });
+    console.log(err.message);
+    if (err instanceof mongoose.CastError) {
+      next(createError(400, "Invalid Music id."));
+      return;
+    }
+    next(err);
   }
 };
 
-exports.deleteMusicRoute = async (req, res) => {
+exports.deleteMusicRoute = async (req, res, next) => {
   try {
-    if (!ObjectId.isValid(req.params.musicId)) {
-      res.status(400).json("Must use a valid user id to update a contact.");
-    }
-    const musicId = new ObjectId(req.params.musicId);
-    const data = await Musics.deleteOne({ _id: musicId });
+    // if (!ObjectId.isValid(req.params.musicId)) {
+    //   res.status(400).json("Must use a valid user id to update a contact.");
+    // }
+    // const musicId = new ObjectId(req.params.musicId);
+    const musicId = req.params.musicId;
+    const data = await Musics.findByIdAndDelete({ _id: musicId });
     if (!data) {
-      res.status(404).send({ message: "Not found theme with id to delete." });
-    } else {
-      res.status(200).send(data);
+      throw createError(400, "Music does not exist.");
     }
+    res.status(200).send(data);
   } catch (err) {
-    res.status(500).send({
-      message: "Error deleting music with the title specified.",
-      error: err
-    });
+    console.log(err.message);
+    if (err instanceof mongoose.CastError) {
+      next(createError(400, "Invalid Music id."));
+      return;
+    }
+    next(err);
   }
 };

@@ -3,13 +3,16 @@ module.exports = (mongoose) => {
     "musics",
     mongoose.Schema({
       title: {
-        type: String
+        type: String,
+        required: true
       },
       artist: {
-        type: [String]
+        type: [String],
+        required: true
       },
       album: {
-        type: String
+        type: String,
+        required: true
       },
       genre: {
         type: [String]

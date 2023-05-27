@@ -1,9 +1,12 @@
 // LOCALHOST
 
+### 404 route not found
+GET http://localhost:8080/asdasd HTTP/1.1
+
 // MUSICS
 
 ### 
-GET http://localhost:8080/musics/6464fd588af74afa490fe605 HTTP/1.1
+GET http://localhost:8080/musics/64690fa599d518311396a4f HTTP/1.1
 
 ### 
 GET http://localhost:8080/musics HTTP/1.1
@@ -25,7 +28,7 @@ content-type: application/json
 }
 
 ### 
-PUT http://localhost:8080/musics/646655e138298ffa9af9fbf5 HTTP/1.1
+PUT http://localhost:8080/musics/64716b67ab8a5aaff3a3533e HTTP/1.1
 content-type: application/json
 
 {
@@ -41,7 +44,7 @@ content-type: application/json
 }
 
 ### 
-DELETE http://localhost:8080/musics/646655e138298ffa9af9fbf5 HTTP/1.1
+DELETE http://localhost:8080/musics/64716a1ca865b167a4714ee1 HTTP/1.1
 
 // USERS
 
