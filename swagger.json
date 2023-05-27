@@ -28,6 +28,7 @@
     },
     "/musics/": {
       "get": {
+        "tags": ["musics"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -43,6 +44,7 @@
         }
       },
       "post": {
+        "tags": ["musics"],
         "description": "",
         "parameters": [
           {
@@ -97,6 +99,7 @@
     },
     "/musics/{musicId}": {
       "get": {
+        "tags": ["musics"],
         "description": "",
         "parameters": [
           {
@@ -119,6 +122,7 @@
         }
       },
       "put": {
+        "tags": ["musics"],
         "description": "",
         "parameters": [
           {
@@ -177,6 +181,7 @@
         }
       },
       "delete": {
+        "tags": ["musics"],
         "description": "",
         "parameters": [
           {
@@ -201,6 +206,7 @@
     },
     "/users/": {
       "get": {
+        "tags": ["users"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -216,6 +222,7 @@
         }
       },
       "post": {
+        "tags": ["users"],
         "description": "",
         "parameters": [
           {
@@ -261,6 +268,7 @@
     },
     "/users/{userId}": {
       "get": {
+        "tags": ["users"],
         "description": "",
         "parameters": [
           {
@@ -283,6 +291,7 @@
         }
       },
       "put": {
+        "tags": ["users"],
         "description": "",
         "parameters": [
           {
@@ -332,6 +341,7 @@
         }
       },
       "delete": {
+        "tags": ["users"],
         "description": "",
         "parameters": [
           {
