@@ -2,20 +2,30 @@ module.exports = (mongoose) => {
   const Users = mongoose.model(
     "users",
     mongoose.Schema({
+      firstName: {
+        type: String,
+        required: true
+      },
+      lastName: {
+        type: String,
+        required: true
+      },
+      googleId: {
+        type: String,
+        required: true
+      },
       username: {
-        type: String,
-        required: true
-      },
-      password: {
-        type: String,
-        required: true
-      },
-      displayName: {
         type: String
       },
-      email: {
+      password: {
+        type: String
+      },
+      displayName: {
         type: String,
         required: true
+      },
+      email: {
+        type: String
       },
       phoneNumber: {
         type: String
