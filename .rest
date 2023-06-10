@@ -59,31 +59,17 @@ POST http://localhost:8080/users HTTP/1.1
 content-type: application/json
 
 {
-  "username": "alex_jones",
-  "password": "strongpassword456",
-  "displayName": "Alex Jones",
-  "email": "alex.jones@example.com",
-  "phoneNumber": "555-1234",
+  "firstName": "Fernando",
+  "lastName": "Arias",
+  "googleId": "106611713629323590199",
+  "displayName": "Fernando Arias",
+  "email": "elderarias2015@gmail.com",
+  "phoneNumber": "+5403886021200",
   "profile": {
-    "experience": [
-      "Backend Developer at XYZ Corporation",
-      "Database Administrator at ABC Company"
-    ],
-    "education": [
-      "Bachelor's Degree in Computer Engineering",
-      "Certification in Database Management"
-    ],
-    "projects": [
-      "API Development for E-commerce Platform",
-      "Database Optimization Project"
-    ],
-    "skills": [
-      "Java",
-      "Python",
-      "SQL",
-      "MongoDB",
-      "AWS"
-    ]
+    "experience": ["Software Developer", "Project Manager"],
+    "education": ["Bachelor's Degree in Computer Science"],
+    "projects": ["Project A", "Project B"],
+    "skills": ["JavaScript", "Python", "HTML", "CSS"]
   }
 }
 
@@ -92,31 +78,17 @@ PUT http://localhost:8080/users/646697b6d562a3ce33c0469e HTTP/1.1
 content-type: application/json
 
 {
-  "username": "M alex_jones",
-  "password": "M strongpassword456",
-  "displayName": "M Alex Jones",
-  "email": "M alex.jones@example.com",
-  "phoneNumber": "M 555-1234",
+  "firstName": "Fernando",
+  "lastName": "Arias",
+  "googleId": "106611713629323590199",
+  "displayName": "Fernando Arias",
+  "email": "elderarias2015@gmail.com",
+  "phoneNumber": "+5403886021200",
   "profile": {
-    "experience": [
-      "Backend Developer at XYZ Corporation",
-      "Database Administrator at ABC Company"
-    ],
-    "education": [
-      "Bachelor's Degree in Computer Engineering",
-      "Certification in Database Management"
-    ],
-    "projects": [
-      "API Development for E-commerce Platform",
-      "Database Optimization Project"
-    ],
-    "skills": [
-      "Java",
-      "Python",
-      "SQL",
-      "MongoDB",
-      "AWS"
-    ]
+    "experience": ["Software Developer", "Project Manager"],
+    "education": ["Bachelor's Degree in Computer Science"],
+    "projects": ["Project A", "Project B"],
+    "skills": ["JavaScript", "Python", "HTML", "CSS"]
   }
 }
 
@@ -181,31 +153,17 @@ POST https://cse-341-project2-6yri.onrender.com/users HTTP/1.1
 content-type: application/json
 
 {
-  "username": "alex_jones",
-  "password": "strongpassword456",
-  "displayName": "Alex Jones",
-  "email": "alex.jones@example.com",
-  "phoneNumber": "555-1234",
+  "firstName": "Fernando",
+  "lastName": "Arias",
+  "googleId": "106611713629323590199",
+  "displayName": "Fernando Arias",
+  "email": "elderarias2015@gmail.com",
+  "phoneNumber": "+5403886021200",
   "profile": {
-    "experience": [
-      "Backend Developer at XYZ Corporation",
-      "Database Administrator at ABC Company"
-    ],
-    "education": [
-      "Bachelor's Degree in Computer Engineering",
-      "Certification in Database Management"
-    ],
-    "projects": [
-      "API Development for E-commerce Platform",
-      "Database Optimization Project"
-    ],
-    "skills": [
-      "Java",
-      "Python",
-      "SQL",
-      "MongoDB",
-      "AWS"
-    ]
+    "experience": ["Software Developer", "Project Manager"],
+    "education": ["Bachelor's Degree in Computer Science"],
+    "projects": ["Project A", "Project B"],
+    "skills": ["JavaScript", "Python", "HTML", "CSS"]
   }
 }
 
@@ -214,31 +172,17 @@ PUT https://cse-341-project2-6yri.onrender.com/users/6466955d7afd18bca2df5ac0 HT
 content-type: application/json
 
 {
-  "username": "M alex_jones",
-  "password": "M strongpassword456",
-  "displayName": "M Alex Jones",
-  "email": "M alex.jones@example.com",
-  "phoneNumber": "M 555-1234",
+  "firstName": "Fernando",
+  "lastName": "Arias",
+  "googleId": "106611713629323590199",
+  "displayName": "Fernando Arias",
+  "email": "elderarias2015@gmail.com",
+  "phoneNumber": "+5403886021200",
   "profile": {
-    "experience": [
-      "Backend Developer at XYZ Corporation",
-      "Database Administrator at ABC Company"
-    ],
-    "education": [
-      "Bachelor's Degree in Computer Engineering",
-      "Certification in Database Management"
-    ],
-    "projects": [
-      "API Development for E-commerce Platform",
-      "Database Optimization Project"
-    ],
-    "skills": [
-      "Java",
-      "Python",
-      "SQL",
-      "MongoDB",
-      "AWS"
-    ]
+    "experience": ["Software Developer", "Project Manager"],
+    "education": ["Bachelor's Degree in Computer Science"],
+    "projects": ["Project A", "Project B"],
+    "skills": ["JavaScript", "Python", "HTML", "CSS"]
   }
 }
 
