@@ -6,3 +6,4 @@ router.use("/musics", ensureAuth, require("./musics"));
 router.use("/users", ensureAuth, require("./users"));
 
 module.exports = router;
+

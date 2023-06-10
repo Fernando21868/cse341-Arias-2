@@ -2,9 +2,10 @@ const validator = require("../helpers/validate");
 
 const saveUser = (req, res, next) => {
   const validationRule = {
-    username: "required|string",
-    password: "required|string",
-    displayName: "string",
+    firstName: "required|string",
+    lastName: "required|string",
+    googleId: "required|string",
+    displayName: "required|string",
     email: "required|email",
     phoneNumber: "string",
     profile: {

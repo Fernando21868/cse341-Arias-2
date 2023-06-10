@@ -16,3 +16,4 @@ router.put("/:userId", validation.saveUser, updateUserRoute);
 router.delete("/:userId", deleteUserRoute);
 
 module.exports = router;
+

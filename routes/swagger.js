@@ -6,3 +6,4 @@ router.use("/api-docs", swaggerUi.serve);
 router.get("/api-docs", ensureAuth, swaggerUi.setup(swaggerDocument));
 
 module.exports = router;
+

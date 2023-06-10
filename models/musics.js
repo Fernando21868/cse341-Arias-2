@@ -36,3 +36,4 @@ module.exports = (mongoose) => {
   );
   return Musics;
 };
+

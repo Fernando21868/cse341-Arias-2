@@ -1,43 +1,44 @@
 [
   {
-    "username": "john_doe",
-    "password": "secretpassword",
-    "displayName": "John Doe",
-    "email": "johndoe@example.com",
-    "phoneNumber": "1234567890",
+    "firstName": "Fernando",
+    "lastName": "Arias",
+    "googleId": "106611713629323590199",
+    "displayName": "Fernando Arias",
+    "email": "elderarias2015@gmail.com",
+    "phoneNumber": "+5403886021200",
     "profile": {
-      "experience": [
-        "Software Engineer at ABC Company",
-        "Web Developer at XYZ Agency"
-      ],
-      "education": [
-        "Bachelor's Degree in Computer Science",
-        "Master's Degree in Information Technology"
-      ],
-      "projects": ["E-commerce Website", "Mobile Application"],
-      "skills": ["JavaScript", "Node.js", "React", "MongoDB"]
+      "experience": ["Software Developer", "Project Manager"],
+      "education": ["Bachelor's Degree in Computer Science"],
+      "projects": ["Project A", "Project B"],
+      "skills": ["JavaScript", "Python", "HTML", "CSS"]
     }
   },
   {
-    "username": "jane_smith",
-    "password": "securepassword123",
-    "displayName": "Jane Smith",
+    "firstName": "John",
+    "lastName": "Doe",
+    "googleId": "abc123",
+    "displayName": "JohnD",
+    "email": "john.doe@example.com",
+    "phoneNumber": "1234567890",
+    "profile": {
+      "experience": ["Software Developer", "Project Manager"],
+      "education": ["Bachelor's Degree in Computer Science"],
+      "projects": ["Project A", "Project B"],
+      "skills": ["JavaScript", "Python", "HTML", "CSS"]
+    }
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "googleId": "xyz456",
+    "displayName": "JaneS",
     "email": "jane.smith@example.com",
     "phoneNumber": "9876543210",
     "profile": {
-      "experience": [
-        "Frontend Developer at XYZ Company",
-        "UI/UX Designer at ABC Agency"
-      ],
-      "education": [
-        "Bachelor's Degree in Graphic Design",
-        "Certification in Web Development"
-      ],
-      "projects": [
-        "Responsive Website Redesign",
-        "Mobile App Interface Design"
-      ],
-      "skills": ["HTML", "CSS", "JavaScript", "Photoshop", "Illustrator"]
+      "experience": ["Frontend Developer", "UI/UX Designer"],
+      "education": ["Master's Degree in Information Technology"],
+      "projects": ["Project X", "Project Y", "Project Z"],
+      "skills": ["HTML", "CSS", "JavaScript", "React", "Adobe XD"]
     }
   }
 ]

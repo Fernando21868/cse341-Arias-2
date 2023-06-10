@@ -42,8 +42,9 @@ exports.getUserByIdRoute = async (req, res, next) => {
 exports.createUserRoute = async (req, res, next) => {
   try {
     const newUser = {
-      username: req.body.username,
-      password: req.body.password,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      googleId: req.body.googleId,
       displayName: req.body.displayName,
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,
@@ -74,8 +75,9 @@ exports.updateUserRoute = async (req, res, next) => {
     // const { userId } = new ObjectId(req.params.userId);
     const userId = req.params.userId;
     const newUser = {
-      username: req.body.username,
-      password: req.body.password,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      googleId: req.body.googleId,
       displayName: req.body.displayName,
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,

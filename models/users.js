@@ -14,12 +14,6 @@ module.exports = (mongoose) => {
         type: String,
         required: true
       },
-      username: {
-        type: String
-      },
-      password: {
-        type: String
-      },
       displayName: {
         type: String,
         required: true
@@ -48,3 +42,4 @@ module.exports = (mongoose) => {
   );
   return Users;
 };
+
